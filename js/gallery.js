@@ -10,23 +10,24 @@ var photoList = [
     {src:	"img/hinamaturi-waku-2.jpg", title: "ひなまつり"}
 ];//photolistの要素の掲載
 
+//14~17は授業メモです。コメントではありません。
 //var list[]でからっぽの配列ができる！！！！一番最後の要素にはカンマをつけない！！！！！
 //var numberOf Photo = photolist.length;
 //var firstPhoto = photolost(0); 0からはじめる
 //var lastphoto = photolist[numberOfphoto - 1]; 0からはじまっているから、−１して順番のずれをなおす
 
 var isReady = function(){
-    return photoListElement != null &&
-        photoList != null &&
-        photoList.length > 0;
+    return photoListElement != null &&//photoListElementの中が空ではない、かつ
+        photoList != null &&//photolistの中が空ではない、かつ
+        photoList.length > 0;//photolistの要素が０ではない（＝photolistの中に要素が存在している）時に動作を実行する。
 };
 
-var renderPhoto = function(index){
+var renderPhoto = function(index){hikisuu//renderPhoto=表示させる写真の選定動作
     var photo = photoList[index];
     var elm = document.createElement("img");
     elm.setAttribute("src", photo.src);
     elm.setAttribute("title", photo.title);
-    return elm;//elm
+    return elm;//elm２７段目に戻る（引数）
 };
 
 var showPhotos = function(){
@@ -34,7 +35,7 @@ var showPhotos = function(){
         var index = 0;//indexを0から開始する
         while(index < photoList.length){//()の中がtrueである場合、{}の中を繰り返せ。indexがphotolistより大きくなったら処理が止まる
 
-            var elm = renderPhoto(index);//２４〜３０で選んだ写真（elm）をHTMLに表示する
+            var elm = renderPhoto(index);//２５〜３１で選んだ写真（elm）をHTMLに表示する
             photoListElement.appendChild(elm);//写真の表示
             index = index + 1;//indexの値を１増加させる
         }
